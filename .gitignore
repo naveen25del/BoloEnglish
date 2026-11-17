@@ -1,0 +1,15 @@
+# Android build artifacts
+app/build/
+build/
+.gradle/
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# Staging
+icon_staging/
+
+# Misc
+.DS_Store
