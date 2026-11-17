@@ -1,66 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal">
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Hindi bolo → English seekho"
-        android:textColor="@color/text_secondary"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/hindiText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@color/card_dark"
-        android:padding="16dp"
-        android:text="Yahan Hindi text aayega..."
-        android:textColor="@color/text_secondary"
-        android:textSize="18sp" />
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/englishText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@color/card_dark"
-        android:padding="20dp"
-        android:text="English yahan aayegi 🔊"
-        android:textColor="@color/text_primary"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-    <Button
-        android:id="@+id/copyButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/card_dark"
-        android:text="📋 Copy English"
-        android:textColor="@color/text_primary" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🎓 English Dost"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <Button
+                android:id="@+id/settingsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/card_dark"
+                android:text="⚙️"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/micButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:backgroundTint="@color/accent"
-        android:paddingStart="40dp"
-        android:paddingEnd="40dp"
-        android:text="🎤 Hindi Bolo"
-        android:textColor="@color/text_primary"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <Button
+                android:id="@+id/modeHindi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="@color/accent"
+                android:text="🎯 Hindi se English"
+                android:textColor="@color/text_primary" />
+
+            <Button
+                android:id="@+id/modePractice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:backgroundTint="@color/card_dark"
+                android:text="💪 Practice"
+                android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/practiceInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/card_dark"
+            android:hint="English me kuch bhi likho ya bolo..."
+            android:inputType="textMultiLine"
+            android:padding="14dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/checkButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/accent"
+            android:text="✅ Check karo"
+            android:textColor="@color/text_primary"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/micButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/accent"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="🎤 Hindi Bolo"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/inputEcho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/card_dark"
+            android:padding="12dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/card_dark"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/outMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/speakButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="@color/bg_dark"
+                android:text="🔊 Dobora suno"
+                android:textColor="@color/accent" />
+
+            <TextView
+                android:id="@+id/outTense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/outAlt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/outMistake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/outTip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/accent"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+</ScrollView>
